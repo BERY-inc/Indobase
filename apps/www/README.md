@@ -1,4 +1,4 @@
-# supabase.com
+# indobase.com
 
 ## Overview
 
@@ -22,9 +22,9 @@ Open Graph (OG) images for social sharing are handled differently across content
 - **Events**: Use dynamic generation via Edge Function (with optional `og_image` override)
 - **Customer stories**: Use dynamic generation via Edge Function (no static option)
 
-The `og-images` Edge Function (`supabase/functions/og-images/`) automatically generates OG images for events and customer stories. It's deployed via `.github/workflows/og_images.yml` when changes are made to the function code.
+The `og-images` Edge Function (`indobase/functions/og-images/`) automatically generates OG images for events and customer stories. It's deployed via `.github/workflows/og_images.yml` when changes are made to the function code.
 
-**Development**: In local development, the function runs at `http://127.0.0.1:54321/functions/v1/og-images`. Ensure Supabase is running locally (`supabase start`).
+**Development**: In local development, the function runs at `http://127.0.0.1:54321/functions/v1/og-images`. Ensure indobase is running locally (`indobase start`).
 
 ### Content frontmatter image fields
 
@@ -111,7 +111,7 @@ Events use different image fields to avoid confusion with their display patterns
 
 **OG image generation**
 
-Events automatically generate Open Graph images using the `og-images` Supabase Edge Function. The function creates images dynamically based on:
+Events automatically generate Open Graph images using the `og-images` indobase Edge Function. The function creates images dynamically based on:
 
 - Event type (conference, hackathon, etc.)
 - Title (or `meta_title` if provided)
@@ -125,7 +125,7 @@ If you need a custom OG image that differs from the auto-generated one, you can 
 
 ```yaml
 ---
-title: 'Supabase Meetup'
+title: 'indobase Meetup'
 thumb: /images/events/2025-01-meetup/thumbnail.png
 cover_url: https://external-cdn.com/event-banner.jpg
 og_image: /images/events/2025-01-meetup/custom-og.png # Optional override
@@ -139,7 +139,7 @@ og_image: /images/events/2025-01-meetup/custom-og.png # Optional override
 Customer stories are defined in MDX files (`apps/www/_customers/*.mdx`) and use a different approach:
 
 - **No `og_image` field**: Customer stories do NOT use static OG images
-- **Dynamic OG generation**: All customer story OG images are automatically generated using the `og-images` Supabase Edge Function
+- **Dynamic OG generation**: All customer story OG images are automatically generated using the `og-images` indobase Edge Function
 - The function creates images based on the customer `slug` and `title` (or `meta_title` if provided)
 
 Do not include an `og_image` field in customer story frontmatter. It will be ignored. OG images are always generated dynamically.
@@ -149,7 +149,7 @@ Do not include an `og_image` field in customer story frontmatter. It will be ign
 ```yaml
 ---
 name: Company ABC
-title: Company ABC built their platform with Supabase
+title: Company ABC built their platform with indobase
 # DO NOT include og_image - it's generated automatically
 logo: /images/customers/logos/company-abc.png
 ---
@@ -166,7 +166,7 @@ logo: /images/customers/logos/company-abc.png
 ```typescript
 {
   type: 'Customer Story',
-  title: 'Company ABC built their platform with Supabase',
+  title: 'Company ABC built their platform with indobase',
   description: '...',
   organization: 'Company ABC',
   imgUrl: 'images/customers/logos/company-abc.png', // Full path from public/

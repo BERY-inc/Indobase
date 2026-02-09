@@ -35,7 +35,7 @@ cd e2e/studio && pnpm run e2e -- --ui
 
 ## Environment Setup
 
-- Tests auto-start Supabase local containers via web server config
+- Tests auto-start Indobase local containers via web server config
 - Self-hosted mode (`IS_PLATFORM=false`) runs tests in parallel (3 workers)
 - No manual setup needed for self-hosted tests
 

@@ -33,7 +33,7 @@ resources/
 ## Example queries
 
 1. **searchDocs** (`globalSearch/`) - Vector-based search across all docs content
-2. **error** (`error/`) - Error code lookup for Supabase services
+2. **error** (`error/`) - Error code lookup for Indobase services
 3. **schema** - GraphQL schema introspection
 
 ## Key Files
@@ -103,7 +103,7 @@ export const GraphQLObjectTypeNewQuery = new GraphQLObjectType({
 import { type RootQueryTypeNewQueryArgs } from '~/__generated__/graphql'
 import { convertPostgrestToApiError, type ApiErrorGeneric } from '~/app/api/utils'
 import { Result } from '~/features/helpers.fn'
-import { supabase } from '~/lib/supabase'
+import { indobase } from '~/lib/indobase'
 
 export class NewQueryModel {
   constructor(
@@ -119,7 +119,7 @@ export class NewQueryModel {
   ): Promise<Result<NewQueryModel[], ApiErrorGeneric>> {
     // Implement data fetching logic
     const result = new Result(
-      await supabase()
+      await indobase()
         .from('your_table')
         .select('*')
       // Add filters based on args
